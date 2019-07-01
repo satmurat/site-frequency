@@ -7,6 +7,7 @@
                  [org.clojure/clojure "1.10.0"]
                  [ring/ring-defaults "0.2.1"]
                  [ring/ring-json "0.4.0"]
+                 [yogthos/config "1.1.4"]
                  [compojure "1.6.1"]
                  [clj-http "3.10.0"]
                  [ring "1.4.0"]]

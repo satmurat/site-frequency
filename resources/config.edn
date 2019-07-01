@@ -1,0 +1,4 @@
+{
+ :bing-http-max-connections 5
+ :bing-search-rss-url-format "https://www.bing.com/search?q=%s&format=rss&count=10"
+ }
