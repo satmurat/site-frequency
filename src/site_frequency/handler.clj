@@ -16,20 +16,19 @@
          (take-last 2)
          (str/join "."))))
 
-(defn uniq-domains
-  "Fetches links from rss body and returns unique 2nd level domains list"
+(defn fetch-links
+  "Fetches links from rss body"
   [rss]
-  (->> rss
-       ($x:text* "//channel/item/link")
-       (map domain)
-       distinct))
+  ($x:text* "//channel/item/link" rss))
 
 (defn calc-common-frequency
   [qs]
   (->> qs
        bc/batch-query-rss
-       (map uniq-domains)
+       (map fetch-links)
        flatten
+       distinct     ;; unification links
+       (map domain) ;; fetch 2nd level domain
        frequencies))
 
 ;; ===== HTTP API ========
